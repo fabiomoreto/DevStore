@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace DevStore.Pedido.Domain
+namespace DevStore.Pedidos.Domain.Models
 {
     public class Email
     {

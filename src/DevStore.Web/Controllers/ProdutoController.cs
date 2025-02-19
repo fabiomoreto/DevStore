@@ -22,8 +22,8 @@ namespace DevStore.Web.Controllers
         {
             var produto = new Produto(nome, valor);
             _produtoRepository.Add(produto);
-            await _produtoRepository.Commit();
-            
+            await _produtoRepository.UnitOfWork.Commit();
+
             return Ok();
         }
 
@@ -52,7 +52,7 @@ namespace DevStore.Web.Controllers
             produto.Valor = valor;
 
             _produtoRepository.Update(produto);
-            await _produtoRepository.Commit();
+            await _produtoRepository.UnitOfWork.Commit();
 
             return Ok();
         }
@@ -65,7 +65,7 @@ namespace DevStore.Web.Controllers
             if (produto == null) return NotFound();
 
             _produtoRepository.Delete(produto);
-            await _produtoRepository.Commit();
+            await _produtoRepository.UnitOfWork.Commit();
 
             return Ok();
         }

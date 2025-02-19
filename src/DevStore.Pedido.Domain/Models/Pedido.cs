@@ -1,6 +1,6 @@
 ﻿using DevStore.SharedKernel.Domain;
 
-namespace DevStore.Pedido.Domain
+namespace DevStore.Pedidos.Domain.Models
 {
     public class Pedido : Entity, IAggregateRoot
     {

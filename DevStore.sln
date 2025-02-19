@@ -11,23 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C3F11AAC-4E4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pedido", "Pedido", "{3B3FD61F-7868-4A88-B3E2-F1A78BC99C1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Pedido.Domain", "src\DevStore.Pedido.Domain\DevStore.Pedido.Domain.csproj", "{A13AE4BC-7460-453E-A014-7B0DFCAE0DF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Pedidos.Domain", "src\DevStore.Pedido.Domain\DevStore.Pedidos.Domain.csproj", "{A13AE4BC-7460-453E-A014-7B0DFCAE0DF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Pedido.Infrastructure", "src\DevStore.Pedido.Infrastructure\DevStore.Pedido.Infrastructure.csproj", "{D3ACE040-5414-42E9-9D14-A982A9968684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Pedidos.Infra", "src\DevStore.Pedido.Infrastructure\DevStore.Pedidos.Infra.csproj", "{D3ACE040-5414-42E9-9D14-A982A9968684}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Pedido.Application", "src\DevStore.Pedido.Application\DevStore.Pedido.Application.csproj", "{8652D728-B4CE-4652-BA00-52A3DA1DC8BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Pedidos.Application", "src\DevStore.Pedido.Application\DevStore.Pedidos.Application.csproj", "{8652D728-B4CE-4652-BA00-52A3DA1DC8BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Produtos.Domain", "src\DevStore.Produto.Domain\DevStore.Produtos.Domain.csproj", "{9D59A7DC-5B6C-456E-8B63-E04442F8DC4C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Produtos.Application", "src\DevStore.Produto.Application\DevStore.Produtos.Application.csproj", "{8B595DE8-CFAA-407C-8F70-5EEDD315FCEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Produtos.Infrastructure", "src\DevStore.Produto.Infrastructure\DevStore.Produtos.Infrastructure.csproj", "{FF463AB1-E387-4793-AB6B-C901B7E52766}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Produtos.Infra", "src\DevStore.Produto.Infrastructure\DevStore.Produtos.Infra.csproj", "{FF463AB1-E387-4793-AB6B-C901B7E52766}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.Web", "src\DevStore.Web\DevStore.Web.csproj", "{8954DBDE-0838-414E-8D6B-3BA4E51E3620}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{2FAE9ADB-E81A-4D3E-889D-46B2FF66D43A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevStore.SharedKernel", "src\DevStore.SharedKernel\DevStore.SharedKernel.csproj", "{DA4617F3-B8BD-44B6-B886-AB1346335C5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevStore.SharedKernel", "src\DevStore.SharedKernel\DevStore.SharedKernel.csproj", "{DA4617F3-B8BD-44B6-B886-AB1346335C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

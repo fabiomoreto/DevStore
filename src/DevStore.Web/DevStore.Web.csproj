@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevStore.Produto.Application\DevStore.Produtos.Application.csproj" />
-    <ProjectReference Include="..\DevStore.Produto.Infrastructure\DevStore.Produtos.Infrastructure.csproj" />
+    <ProjectReference Include="..\DevStore.Produto.Infrastructure\DevStore.Produtos.Infra.csproj" />
   </ItemGroup>
 
 </Project>

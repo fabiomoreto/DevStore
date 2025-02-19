@@ -15,7 +15,7 @@ namespace DevStore.Produtos.Infrastructure.Data.Repositories
     {
         private readonly ProdutoContext _context;
 
-        public IUnitOfWork UnitOfWork => throw new NotImplementedException();
+        public IUnitOfWork UnitOfWork => _context;
 
         public ProdutoRepository(ProdutoContext context)
         {

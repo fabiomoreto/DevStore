@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevStore.Pedido.Domain
+namespace DevStore.Pedidos.Domain.Models
 {
     public class PedidoItem : Entity
     {

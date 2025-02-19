@@ -15,6 +15,5 @@ namespace DevStore.Produtos.Domain.Interfaces
         void Add(Produto produto);
         void Update(Produto produto);
         void Delete(Produto produto);
-        Task Commit();
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevStore.Pedidos.Domain.Models
+namespace DevStore.Domain.Models
 {
     public class PedidoItem : Entity
     {
@@ -14,6 +14,7 @@ namespace DevStore.Pedidos.Domain.Models
         public int Quantidade { get; private set; }
 
         public Pedido Pedido { get; set; }
+        //public Produto Produto { get; set; }
 
         protected PedidoItem() { }
 

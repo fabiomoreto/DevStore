@@ -1,7 +1,5 @@
-﻿using DevStore.Produtos.Domain.Entities;
-using DevStore.Produtos.Domain.Interfaces;
-using DevStore.Produtos.Infrastructure.Data.Context;
-using DevStore.Produtos.Infrastructure.Data.Repositories;
+﻿using DevStore.Domain.Models;
+using DevStore.SharedKernel.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevStore.Web.Controllers
@@ -10,9 +8,9 @@ namespace DevStore.Web.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly IProdutoRepository _produtoRepository;
+        private readonly IRepository<Produto> _produtoRepository;
 
-        public ProdutoController(IProdutoRepository produtoRepository)
+        public ProdutoController(IRepository<Produto> produtoRepository)
         {
             _produtoRepository = produtoRepository;
         }
@@ -37,7 +35,7 @@ namespace DevStore.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> ObterTodos()
         {
-            var produtos = await _produtoRepository.GetAll();
+            var produtos = await _produtoRepository.GetAllAsync();
             return Ok(produtos);
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace DevStore.Pedidos.Domain.Models
+namespace DevStore.Domain.ValueObjects
 {
     public class Email
     {

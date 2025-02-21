@@ -1,9 +1,8 @@
-using DevStore.Produtos.Domain.Interfaces;
-using DevStore.Produtos.Infrastructure.Data.Context;
-using DevStore.Produtos.Infrastructure.Data.Repositories;
+using DevStore.Domain.Models;
+using DevStore.Infra.Data.Repositories;
+using DevStore.Infra.Data.Context;
+using DevStore.SharedKernel.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
 
 namespace DevStore.WebApp.API
 {
@@ -20,9 +19,18 @@ namespace DevStore.WebApp.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<ProdutoContext>(options => options.UseInMemoryDatabase("TestDb"));
-            builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            builder.Services.AddScoped<ProdutoContext>();
+            // Add app context
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+
+            // Add Produto context
+            //builder.Services.AddDbContext<ProdutoContext>(options => options.UseInMemoryDatabase("TestDb"));
+            builder.Services.AddScoped<IRepository<Produto>, ProdutoRepository>();
+            //builder.Services.AddScoped<ProdutoContext>();
+
+            // Add Pedido context
+            //builder.Services.AddDbContext<PedidoContext>(options => options.UseInMemoryDatabase("TestDb"));
+            builder.Services.AddScoped<IRepository<Pedido>, PedidoRepository>();
+            //builder.Services.AddScoped<PedidoContext>();
 
             var app = builder.Build();
 

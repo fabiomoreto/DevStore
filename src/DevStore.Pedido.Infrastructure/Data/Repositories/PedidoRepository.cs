@@ -1,5 +1,4 @@
-﻿using DevStore.Pedidos.Domain.Interfaces;
-using DevStore.Pedidos.Domain.Models;
+﻿using DevStore.Pedidos.Domain.Models;
 using DevStore.Pedidos.Infrastructure.Data.Context;
 using DevStore.SharedKernel.Data;
 using Microsoft.EntityFrameworkCore;
@@ -11,20 +10,14 @@ using System.Threading.Tasks;
 
 namespace DevStore.Pedidos.Infra.Data.Repositories
 {
-    public class PedidoRepository : IPedidoRepository
+    public class PedidoRepository : Repository<Pedido>
     {
         private readonly PedidoContext _context;
+        public override IUnitOfWork UnitOfWork => _context;
 
-        public IUnitOfWork UnitOfWork => _context;
-
-        public PedidoRepository(PedidoContext context)
+        public PedidoRepository(PedidoContext context) : base(context) 
         {
             _context = context;
-        }
-
-        public void Dispose()
-        {
-            _context.Dispose();
         }
     }
 }

@@ -7,16 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Mappings\" />
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DevStore.Produto.Domain\DevStore.Produtos.Domain.csproj" />
+    <ProjectReference Include="..\DevStore.Domain\DevStore.Domain.csproj" />
     <ProjectReference Include="..\DevStore.SharedKernel\DevStore.SharedKernel.csproj" />
   </ItemGroup>
 

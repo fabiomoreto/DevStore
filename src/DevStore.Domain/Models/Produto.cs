@@ -12,8 +12,8 @@ namespace DevStore.Domain.Models
         public string Nome { get; set; }
         public decimal Valor { get; set; }
 
-        //private readonly List<PedidoItem> _itens = new();
-        //public IReadOnlyCollection<PedidoItem> Itens => _itens.AsReadOnly();
+        private readonly List<PedidoItem> _itens = new();
+        public IReadOnlyCollection<PedidoItem> Itens => _itens.AsReadOnly();
 
         protected Produto() { }
 

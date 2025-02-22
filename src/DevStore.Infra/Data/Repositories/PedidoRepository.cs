@@ -15,9 +15,12 @@ namespace DevStore.Infra.Data.Repositories
             _context = context;
         }
 
-        public async Task<Pedido> GetById(int id)
+        public override async Task<Pedido?> GetById(int id)
         {
-            return await _context.Pedidos.Include(x => x.Itens).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Pedidos
+                            .Include(x => x.Itens)
+                                .ThenInclude(x => x.Produto)
+                            .FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace DevStore.Domain.Models
     public class Pedido : Entity, IAggregateRoot
     {
         public string NomeCliente { get; private set; }
-        public string EmailCliente { get; private set; }
+        public Email EmailCliente { get; private set; }
         public DateTime DataCriacao { get; private set; }
         public bool Pago { get; private set; }
 
@@ -18,7 +18,7 @@ namespace DevStore.Domain.Models
         public Pedido(string nomeCliente, string emailCliente)
         {
             NomeCliente = nomeCliente;
-            EmailCliente = emailCliente;
+            EmailCliente = new Email(emailCliente);
             DataCriacao = DateTime.UtcNow;
             Pago = false;
         }

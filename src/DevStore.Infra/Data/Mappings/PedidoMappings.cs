@@ -14,19 +14,17 @@ namespace DevStore.Infra.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(60)");
 
-            builder.Property(p => p.EmailCliente)
-                .IsRequired()
-                .HasColumnType("varchar(60)");
-
             builder.Property(p => p.DataCriacao)
                 .IsRequired();
 
             builder.Property(p => p.Pago)
                 .IsRequired();
 
-            builder.HasMany(c => c.Itens)
-                .WithOne(c => c.Pedido)
-                .HasForeignKey(c => c.PedidoId);
+            builder.ComplexProperty(p => p.EmailCliente, config =>
+            {
+                config.Property(x => x.Endereco)
+                    .HasColumnName("EmailCliente");
+            });
 
             builder.ToTable("Pedidos");
         }

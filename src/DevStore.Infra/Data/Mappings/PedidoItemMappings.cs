@@ -13,6 +13,14 @@ namespace DevStore.Infra.Data.Mappings
             builder.Property(p => p.Quantidade)
                 .IsRequired();
 
+            builder.HasOne(c => c.Pedido)
+                .WithMany(c => c.Itens)
+                .HasForeignKey(c => c.PedidoId);
+
+            builder.HasOne(c => c.Produto)
+                .WithMany(c => c.Itens)
+                .HasForeignKey(c => c.ProdutoId);
+
             builder.ToTable("PedidoItens");
         }
     }

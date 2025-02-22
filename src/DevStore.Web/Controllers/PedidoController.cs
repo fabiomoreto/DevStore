@@ -1,4 +1,5 @@
-﻿using DevStore.Domain.Models;
+﻿using DevStore.Application.Mappings;
+using DevStore.Domain.Models;
 using DevStore.SharedKernel.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,8 +46,8 @@ namespace DevStore.Web.Controllers
         public async Task<IActionResult> ObterPedido(int id)
         {
             // TODO: formatar retorno json
-            var pedido = await _pedidoRepository.GetById(id);
-            return pedido != null ? Ok(pedido) : NotFound();
+            var pedidoDto = (await _pedidoRepository.GetById(id))?.ToPedidoDto();
+            return pedidoDto != null ? Ok(pedidoDto) : NotFound();
         }
 
 

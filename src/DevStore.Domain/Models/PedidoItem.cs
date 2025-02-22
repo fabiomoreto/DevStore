@@ -14,7 +14,7 @@ namespace DevStore.Domain.Models
         public int Quantidade { get; private set; }
 
         public Pedido Pedido { get; set; }
-        //public Produto Produto { get; set; }
+        public Produto Produto { get; set; }
 
         protected PedidoItem() { }
 

@@ -17,11 +17,7 @@ namespace DevStore.Infra.Data.Mappings
             builder.Property(p => p.Valor)
                 .IsRequired();
 
-            //builder.HasMany(c => c.Itens)
-            //    .WithOne(c => c.Produto)
-            //    .HasForeignKey(c => c.ProdutoId);
-
-            builder.ToTable("Pedidos");
+            builder.ToTable("Produtos");
         }
     }
 }

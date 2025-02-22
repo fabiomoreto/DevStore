@@ -19,18 +19,14 @@ namespace DevStore.WebApp.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
             // Add app context
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // Add Produto context
-            //builder.Services.AddDbContext<ProdutoContext>(options => options.UseInMemoryDatabase("TestDb"));
+            // Add repositórios
             builder.Services.AddScoped<IRepository<Produto>, ProdutoRepository>();
-            //builder.Services.AddScoped<ProdutoContext>();
-
-            // Add Pedido context
-            //builder.Services.AddDbContext<PedidoContext>(options => options.UseInMemoryDatabase("TestDb"));
             builder.Services.AddScoped<IRepository<Pedido>, PedidoRepository>();
-            //builder.Services.AddScoped<PedidoContext>();
 
             var app = builder.Build();
 

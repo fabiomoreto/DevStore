@@ -1,9 +1,9 @@
 ﻿using DevStore.Application.Models;
 using DevStore.Domain.Models;
 
-namespace DevStore.Application.Mappings
+namespace DevStore.Application.ModelMappings
 {
-    public static class PedidoExtensions
+    public static class ModelMappings
     {
         public static PedidoDto ToPedidoDto(this Pedido pedido)
         {
@@ -22,5 +22,7 @@ namespace DevStore.Application.Mappings
                 )).ToList()
             );
         }
+
+        public static ProdutoDto ToProdutoDto(this Produto produto) => new ProdutoDto(produto.Id, produto.Nome, produto.Valor);
     }
 }

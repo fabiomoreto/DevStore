@@ -1,71 +1,55 @@
-﻿using DevStore.Domain.Models;
-using DevStore.SharedKernel.Data;
+﻿using AG.Products.API.Controllers;
+using DevStore.Application.Commands;
+using DevStore.Application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevStore.Web.Controllers
 {
     [Route("api/produtos")]
     [ApiController]
-    public class ProdutoController : ControllerBase
+    public class ProdutoController : MainController
     {
-        private readonly IRepository<Produto> _produtoRepository;
+        private readonly ISender _mediator;
 
-        public ProdutoController(IRepository<Produto> produtoRepository)
+        public ProdutoController(ISender mediator)
         {
-            _produtoRepository = produtoRepository;
+            _mediator = mediator;
         }
 
         [HttpPost("novo-produto")]
-        public async Task<IActionResult> NovoProduto(string nome, decimal valor)
+        public async Task<IActionResult> NovoProduto(CriarProdutoCommand request)
         {
-            var produto = new Produto(nome, valor);
-            _produtoRepository.Add(produto);
-            await _produtoRepository.UnitOfWork.Commit();
-
-            return Ok();
+            var result = await _mediator.Send(request);
+            return CustomResponse(result);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> ObterProduto(int id)
         {
-            var produto = await _produtoRepository.GetById(id);
+            var produto = await _mediator.Send(new ObterProdutoQuery(id));
             return produto != null ? Ok(produto) : NotFound();
         }
 
         [HttpGet]
         public async Task<IActionResult> ObterTodos()
         {
-            var produtos = await _produtoRepository.GetAllAsync();
+            var produtos = await _mediator.Send(new ObterTodosProdutosQuery());
             return Ok(produtos);
         }
 
-        [HttpPut("atualizar/{id}")]
-        public async Task<IActionResult> AtualizarProduto(int id, string nome, decimal valor)
+        [HttpPut("atualizar")]
+        public async Task<IActionResult> AtualizarProduto(AtualizarProdutoCommand request)
         {
-            var produto = await _produtoRepository.GetById(id);
-            
-            if (produto == null) return NotFound();
-
-            produto.Nome = nome;
-            produto.Valor = valor;
-
-            _produtoRepository.Update(produto);
-            await _produtoRepository.UnitOfWork.Commit();
-
-            return Ok();
+            var result = await _mediator.Send(request);
+            return CustomResponse(result);
         }
 
         [HttpDelete("excluir/{id}")]
         public async Task<IActionResult> ExcluirProduto(int id)
         {
-            var produto = await _produtoRepository.GetById(id);
-
-            if (produto == null) return NotFound();
-
-            _produtoRepository.Delete(produto);
-            await _produtoRepository.UnitOfWork.Commit();
-
-            return Ok();
+            var result = await _mediator.Send(new ExcluirProdutoCommand(id));
+            return CustomResponse(result);
         }
     }
 }

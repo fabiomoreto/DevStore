@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevStore.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250222151818_InitialMigration")]
+    [Migration("20250224022637_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -98,7 +98,7 @@ namespace DevStore.Infra.Data.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
 

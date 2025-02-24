@@ -95,7 +95,7 @@ namespace DevStore.Infra.Data.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
 

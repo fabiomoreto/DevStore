@@ -15,7 +15,8 @@ namespace DevStore.Infra.Data.Mappings
                 .HasColumnType("varchar(20)");
 
             builder.Property(p => p.Valor)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("decimal(10,2)");
 
             builder.ToTable("Produtos");
         }

@@ -1,9 +1,4 @@
 ﻿using DevStore.SharedKernel.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevStore.Domain.Models
 {
@@ -17,10 +12,35 @@ namespace DevStore.Domain.Models
 
         protected Produto() { }
 
-        public Produto(string nome, decimal valor)
+        public static Result<Produto> CriarProduto(string nome, decimal valor)
         {
+            var produto = new Produto();
+
+            var result = produto.SetarNome(nome);
+            if (!result.IsSuccessful) return result.Error;
+
+            result = produto.SetarValor(valor);
+            if (!result.IsSuccessful) return result.Error;
+
+            return produto;
+        }
+
+        public Result SetarNome(string nome)
+        {
+            if (string.IsNullOrEmpty(nome)) return new Error("Nome do produto não pode ser nulo ou vazio.");
+
             Nome = nome;
+
+            return Result.Success();
+        }
+
+        public Result SetarValor(decimal valor)
+        {
+            if (valor < 0) return new Error("Valor não pode ser negativo.");
+
             Valor = valor;
+
+            return Result.Success();
         }
     }
 }

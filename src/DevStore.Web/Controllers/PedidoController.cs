@@ -1,4 +1,4 @@
-﻿using DevStore.Application.Mappings;
+﻿using DevStore.Application.ModelMappings;
 using DevStore.Domain.Models;
 using DevStore.SharedKernel.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +23,6 @@ namespace DevStore.Web.Controllers
         [HttpPost("novo-pedido")]
         public async Task<IActionResult> NovoPedido(string nomeCliente, string emailCliente, int idProduto)
         {
-            // TODO: Implementar serviço na API e validações
-
             var produto = await _produtoRepository.GetById(idProduto);
             
             if (produto is null) return BadRequest("Produto não encontrado.");
@@ -45,7 +43,6 @@ namespace DevStore.Web.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> ObterPedido(int id)
         {
-            // TODO: formatar retorno json
             var pedidoDto = (await _pedidoRepository.GetById(id))?.ToPedidoDto();
             return pedidoDto != null ? Ok(pedidoDto) : NotFound();
         }

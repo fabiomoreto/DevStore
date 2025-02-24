@@ -1,6 +1,5 @@
 ﻿using DevStore.SharedKernel.Data;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using DevStore.Domain.Models;
 using DevStore.Infra.Data.Mappings;
 
@@ -17,7 +16,6 @@ namespace DevStore.Infra.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Ignore<ValidationResult>();
             modelBuilder.ApplyConfiguration (new ProdutoMappings());
             modelBuilder.ApplyConfiguration(new PedidoMappings());
             modelBuilder.ApplyConfiguration(new PedidoItemMappings());
